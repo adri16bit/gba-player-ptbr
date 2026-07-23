@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Politica de Privacidade — GBA mGBA</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Courier New", monospace;
+        font-size: 16px;
+        line-height: 1.55;
+        color: #000;
+        background: #000080;
+        background-image:
+          radial-gradient(1px 1px at 10px 10px, #fff, transparent),
+          radial-gradient(1px 1px at 50px 30px, #ffff99, transparent),
+          radial-gradient(1px 1px at 80px 60px, #fff, transparent);
+        background-size: 100px 80px;
+        min-height: 100vh;
+        padding-bottom: 24px;
+      }
+
+      .retro-header {
+        background: linear-gradient(180deg, #0000aa, #000080);
+        color: #ffff00;
+        text-align: center;
+        padding: 20px 16px;
+        border-bottom: 4px solid #c0c0c0;
+      }
+
+      .retro-header h1 {
+        font-size: 28px;
+        text-shadow: 2px 2px 0 #000;
+      }
+
+      .subtitle {
+        color: #fff;
+        font-size: 14px;
+        margin-top: 6px;
+      }
+
+      .status {
+        color: #0f0;
+        font-size: 13px;
+        margin-top: 8px;
+        font-weight: bold;
+      }
+
+      .blink {
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .page-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 12px;
+      }
+
+      .lang-bar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .lang-btn {
+        font-family: "Courier New", monospace;
+        border: 3px outset #fff;
+        background: #c0c0c0;
+        color: #000080;
+        padding: 6px 14px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .lang-btn.active {
+        background: #000080;
+        color: #ffff00;
+        border-style: inset;
+      }
+
+      .retro-box {
+        background: #c0c0c0;
+        border: 3px groove #808080;
+        margin-bottom: 14px;
+        padding: 14px;
+      }
+
+      .box-title {
+        display: block;
+        width: 100%;
+        margin: 0 0 12px;
+        padding: 8px 10px;
+        font-size: 17px;
+        font-weight: bold;
+        color: #000080;
+        text-align: center;
+        background: #dfdfdf;
+        border: 2px inset #808080;
+      }
+
+      h2 {
+        font-size: 16px;
+        color: #000080;
+        margin: 14px 0 8px;
+      }
+
+      h2:first-child {
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin: 0 0 10px 18px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      .feature-grid {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .feature-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 10px;
+        background: #fff;
+        border: 2px inset #808080;
+        font-size: 14px;
+      }
+
+      .feature-item strong {
+        color: #000080;
+      }
+
+      .badge {
+        font-size: 11px;
+        font-weight: bold;
+        padding: 3px 8px;
+        white-space: nowrap;
+        border: 2px solid;
+      }
+
+      .badge-local {
+        color: #006600;
+        background: #ccffcc;
+        border-color: #006600;
+      }
+
+      .badge-remote {
+        color: #ff6600;
+        background: #ffffcc;
+        border-color: #ff6600;
+      }
+
+      .badge-none {
+        color: #000080;
+        background: #e8e8ff;
+        border-color: #000080;
+      }
+
+      code {
+        background: #ffffcc;
+        border: 1px solid #808080;
+        padding: 1px 5px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+      }
+
+      a {
+        color: #0000ee;
+        font-weight: bold;
+      }
+
+      .retro-footer {
+        text-align: center;
+        padding: 16px;
+        color: #c0c0c0;
+        font-size: 13px;
+      }
+
+      .retro-footer hr {
+        border: none;
+        border-top: 2px solid #808080;
+        margin-bottom: 10px;
+      }
+
+      [data-lang] {
+        display: none;
+      }
+
+      [data-lang].active {
+        display: block;
+      }
+
+      @media (max-width: 520px) {
+        .feature-item {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="retro-header">
+      <h1>★ GBA mGBA ★</h1>
+      <p class="subtitle">~ Politica de Privacidade ~</p>
+      <p class="status blink">● DOCUMENTO OFICIAL</p>
+    </header>
+
+    <div class="page-wrap">
+      <div class="lang-bar">
+        <button class="lang-btn active" type="button" data-set-lang="pt">Português</button>
+        <button class="lang-btn" type="button" data-set-lang="en">English</button>
+      </div>
+
+      <div data-lang="pt" class="active">
+        <fieldset class="retro-box">
+          <legend class="box-title">ℹ RESUMO</legend>
+          <p>
+            <strong>GBA mGBA</strong> e um emulador de Game Boy Advance para Google Chrome
+            com core <strong>mGBA</strong>. Esta extensao <strong>nao hospeda jogos</strong> e
+            <strong>nao distribui ROMs</strong>.
+          </p>
+          <p>
+            Suas ROMs, saves e configuracoes ficam <strong>apenas no seu navegador</strong>.
+            Nao coletamos nome real, e-mail, localizacao nem dados pessoais identificaveis.
+          </p>
+          <p><small>Ultima atualizacao: julho de 2026</small></p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">🎮 FUNCIONALIDADES E DADOS</legend>
+          <p>Cada recurso da extensao e o que acontece com seus dados:</p>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <span><strong>Importar e jogar ROMs .gba</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Biblioteca de ROMs</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Save de cartucho (.sav)</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Auto Save</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Salvar / carregar estado</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Controles de teclado</strong></span>
+              <span class="badge badge-none">SEM DADOS</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Som e volume</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Tela cheia</strong></span>
+              <span class="badge badge-none">SEM DADOS</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Idioma PT / EN</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Core mGBA (WASM)</strong></span>
+              <span class="badge badge-local">SÓ LOCAL</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Ranking mundial de horas</strong></span>
+              <span class="badge badge-remote">SUPABASE</span>
+            </div>
+          </div>
+          <p>
+            A emulacao roda 100% no seu dispositivo. Nenhuma ROM, save ou gameplay e enviado
+            para servidores.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">📊 DADOS ENVIADOS (RANKING)</legend>
+          <p>Apenas para o ranking mundial opcional, enviamos estatisticas anonimas:</p>
+          <ul>
+            <li>
+              <strong>ID anonimo</strong> — gerado na instalacao (ex.:
+              <code>Player A3F2</code>)
+            </li>
+            <li><strong>Tempo total de jogo</strong> — em milissegundos</li>
+            <li><strong>Contagem de jogadores</strong> — total de usuarios unicos</li>
+          </ul>
+          <p>
+            Destino:
+            <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>
+            (servidor nos EUA). Sem ROMs, sem saves, sem historico de navegacao.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">💾 DADOS LOCAIS (NAO ENVIADOS)</legend>
+          <ul>
+            <li>ROMs importadas (.gba)</li>
+            <li>Saves de cartucho (.sav)</li>
+            <li>Save states do emulador</li>
+            <li>Preferencias (idioma, volume, som)</li>
+            <li>Lista da biblioteca de jogos</li>
+          </ul>
+          <p>Tudo fica em <code>chrome.storage.local</code> no seu Chrome.</p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">🔐 PERMISSOES DO CHROME</legend>
+          <h2>storage</h2>
+          <p>Salvar ROMs, saves, configuracoes e ID anonimo localmente.</p>
+          <h2>unlimitedStorage</h2>
+          <p>
+            ROMs e saves podem ocupar muito espaco. Sem isso, o limite padrao do Chrome
+            impediria guardar varios jogos.
+          </p>
+          <h2>https://*.supabase.co/*</h2>
+          <p>Usado somente para sincronizar o ranking mundial anonimo descrito acima.</p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">🤝 TERCEIROS</legend>
+          <p>
+            Nao vendemos dados. Nao usamos anunciantes. Apenas o Supabase processa as
+            estatisticas anonimas do ranking.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">⚖ SEUS DIREITOS</legend>
+          <p>
+            Para solicitar exclusao dos seus dados do ranking, entre em contato pelo e-mail
+            do desenvolvedor na Chrome Web Store.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">📝 ALTERACOES</legend>
+          <p>
+            Esta politica pode ser atualizada. Mudancas relevantes serao refletidas nesta
+            pagina.
+          </p>
+        </fieldset>
+      </div>
+
+      <div data-lang="en">
+        <fieldset class="retro-box">
+          <legend class="box-title">ℹ SUMMARY</legend>
+          <p>
+            <strong>GBA mGBA</strong> is a Game Boy Advance emulator for Google Chrome
+            powered by the <strong>mGBA</strong> core. This extension
+            <strong>does not host games</strong> and <strong>does not distribute ROMs</strong>.
+          </p>
+          <p>
+            Your ROMs, saves, and settings stay <strong>only in your browser</strong>. We do
+            not collect real names, emails, location, or personally identifiable information.
+          </p>
+          <p><small>Last updated: July 2026</small></p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">🎮 FEATURES AND DATA</legend>
+          <p>Each extension feature and what happens to your data:</p>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <span><strong>Import and play .gba ROMs</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>ROM library</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Cartridge save (.sav)</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Auto Save</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Save / load state</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Keyboard controls</strong></span>
+              <span class="badge badge-none">NO DATA</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Sound and volume</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Fullscreen</strong></span>
+              <span class="badge badge-none">NO DATA</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>PT / EN language</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>mGBA core (WASM)</strong></span>
+              <span class="badge badge-local">LOCAL ONLY</span>
+            </div>
+            <div class="feature-item">
+              <span><strong>Global play-time ranking</strong></span>
+              <span class="badge badge-remote">SUPABASE</span>
+            </div>
+          </div>
+          <p>
+            Emulation runs 100% on your device. No ROM, save file, or gameplay is uploaded
+            to servers.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">📊 DATA SENT (RANKING)</legend>
+          <p>Only for the optional global ranking, we send anonymous statistics:</p>
+          <ul>
+            <li>
+              <strong>Anonymous ID</strong> — generated on install (e.g.
+              <code>Player A3F2</code>)
+            </li>
+            <li><strong>Total play time</strong> — in milliseconds</li>
+            <li><strong>Player count</strong> — total unique users</li>
+          </ul>
+          <p>
+            Destination:
+            <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>
+            (US servers). No ROMs, no saves, no browsing history.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">💾 LOCAL DATA (NOT UPLOADED)</legend>
+          <ul>
+            <li>Imported ROMs (.gba)</li>
+            <li>Cartridge saves (.sav)</li>
+            <li>Emulator save states</li>
+            <li>Preferences (language, volume, sound)</li>
+            <li>Game library list</li>
+          </ul>
+          <p>Everything stays in <code>chrome.storage.local</code> in your Chrome.</p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">🔐 CHROME PERMISSIONS</legend>
+          <h2>storage</h2>
+          <p>Store ROMs, saves, settings, and local anonymous ID.</p>
+          <h2>unlimitedStorage</h2>
+          <p>
+            ROMs and saves can use a lot of space. Without this, Chrome's default quota
+            would prevent storing multiple games.
+          </p>
+          <h2>https://*.supabase.co/*</h2>
+          <p>Used only to sync the anonymous global ranking described above.</p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">🤝 THIRD PARTIES</legend>
+          <p>
+            We do not sell data. We do not use advertisers. Only Supabase processes the
+            anonymous ranking statistics.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">⚖ YOUR RIGHTS</legend>
+          <p>
+            To request deletion of your ranking data, contact the developer email listed on
+            the Chrome Web Store.
+          </p>
+        </fieldset>
+
+        <fieldset class="retro-box">
+          <legend class="box-title">📝 CHANGES</legend>
+          <p>
+            This policy may be updated. Relevant changes will be reflected on this page.
+          </p>
+        </fieldset>
+      </div>
+    </div>
+
+    <footer class="retro-footer">
+      <hr />
+      <p>GBA mGBA © 2026 | Feito com 💙 e pixels</p>
+      <p class="blink">★ PRIVACIDADE EM PRIMEIRO LUGAR ★</p>
+    </footer>
+
+    <script>
+      const buttons = document.querySelectorAll("[data-set-lang]");
+      const sections = document.querySelectorAll("[data-lang]");
+
+      function setLang(lang) {
+        const next = lang === "en" ? "en" : "pt";
+        document.documentElement.lang = next === "en" ? "en" : "pt-BR";
+        document.title =
+          next === "en"
+            ? "Privacy Policy — GBA mGBA"
+            : "Politica de Privacidade — GBA mGBA";
+
+        sections.forEach((section) => {
+          section.classList.toggle("active", section.dataset.lang === next);
+        });
+
+        buttons.forEach((button) => {
+          button.classList.toggle("active", button.dataset.setLang === next);
+        });
+
+        localStorage.setItem("privacy-lang", next);
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setLang(button.dataset.setLang));
+      });
+
+      setLang(localStorage.getItem("privacy-lang") || "pt");
+    </script>
+  </body>
+</html>
